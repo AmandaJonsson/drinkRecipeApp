@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-
+import DrinkCard from '../drinkCard/component';
 //functional component using an arrow function
 const SearchBar = () => {
 
@@ -34,7 +34,7 @@ const SearchBar = () => {
 
       useEffect(() => {
         getDrinkRecipes();
-
+           // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       
       return (
@@ -45,10 +45,10 @@ const SearchBar = () => {
                 width="200px" 
                 onChange={handleChange} />
             <button onClick={() => getDrinkRecipes()}>Sök</button>
-            <div>
+            <div className='flex-container'>
               {apiResponse.length > 0 ? apiResponse.map((drink) => {
                 return (
-                  <p key={drink.name}>{drink.name}</p>
+                  <DrinkCard name={drink.name}/>
                 );
 
               }) : null}

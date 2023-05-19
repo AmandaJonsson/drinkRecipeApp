@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SearchBar from './searchBar/component';
 
-export default function () {
+export default function DrinkRecipe() {
 
     
     function Component() {
