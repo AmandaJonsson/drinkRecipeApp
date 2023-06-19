@@ -1,17 +1,13 @@
 import React, { useState, useEffect} from 'react';
 import DrinkCard from '../drinkCard/component';
+import './searchBar.css';
+import {Link} from 'react-router-dom'
 //functional component using an arrow function
 const SearchBar = () => {
 
     //creating a variable using the useState  hook
     const [searchInput, setSearchInput] = useState("");
     const [apiResponse, setApiResponse] = useState({});
-
-      const handleChange = (e) => {
-        e.preventDefault();
-        setSearchInput(e.target.value);
-        console.log(searchInput);
-      };
 
       async function getDrinkRecipes () {
         if(!searchInput) {
@@ -32,28 +28,31 @@ const SearchBar = () => {
 
       } 
 
-      useEffect(() => {
+      const submitDrinkSearch = (e) => {
+        e.preventDefault();
         getDrinkRecipes();
+      }
+
+      useEffect(() => {
+        // getDrinkRecipes();
            // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       
+      
       return (
-        <div>
-            <input 
-                type="text" 
-                placeholder="Sök på recept" 
-                width="200px" 
-                onChange={handleChange} />
-            <button onClick={() => getDrinkRecipes()}>Sök</button>
+        <div className='body'>
+          <form className='form' onSubmit={(e) => submitDrinkSearch(e)}> 
+            <input className='input' type="text" placeholder="Sök på recept" width="200px" value={searchInput || ''} onChange={(e) => setSearchInput(e.target.value)} />
+            <input className='input' type="submit" value="Sök"/>
             <div className='flex-container'>
               {apiResponse.length > 0 ? apiResponse.map((drink) => {
                 return (
-                  <DrinkCard name={drink.name}/>
+                    <DrinkCard key={drink.name}name={drink.name} ingredients={drink.ingredients} instructions={drink.instructions}/>
                 );
 
               }) : null}
             </div>
-
+            </form>
         </div>
       );
 

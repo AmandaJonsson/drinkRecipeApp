@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -41,8 +42,9 @@
   font-family: 'Satisfy', cursive;
   font-weight: 500;
   font-size: 6.25rem;
-  margin-top: 1rem;
   margin-bottom: 0px;
+  margin-top: 0px;
+  padding-top: 15px;
 }
 
 .subHeader {
@@ -53,4 +55,10 @@
   font-weight: 300;
   text-transform: none;
   font-size: 15px;;
+  padding-bottom: 15px;
+}
+
+.header-container {
+  background-color: white
+
 }

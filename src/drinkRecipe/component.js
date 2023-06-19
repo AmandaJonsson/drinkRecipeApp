@@ -7,9 +7,10 @@ export default function DrinkRecipe() {
     function Component() {
         return (
             <div>
-                <h1 className='header'>Drinkar</h1>
-                <p className='subHeader'>Goda drinkrecept online</p>
-                <hr></hr>
+                <div className='header-container'>
+                    <h1 className='header'>Drinkar</h1>
+                    <p className='subHeader'>Goda drinkrecept online</p>
+                </div>
                 <SearchBar />
             </div>
         );
