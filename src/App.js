@@ -1,27 +1,22 @@
 import './App.css';
-import drinkRecipeMaker from './drinkRecipe/component';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import drinkDetailsMaker from './drinkRecipe/drinkCard/drinkDetails/component';
-
+import navbarMaker from './pages/navbar/component';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import drinkDetailsMaker from './pages/drinkDetails/component';
+import {Start} from './pages/start/component';
 
 function App() {
 
-  const DrinkRecipe = drinkRecipeMaker();
+  const Navbar = navbarMaker();
   const DrinkDetails = drinkDetailsMaker();
   return (
-
-    
     <div className="App body">
-
-       <BrowserRouter>
-      <Routes>
-        <Route path="/">
-          <Route index element={<DrinkRecipe />} />
-          <Route path='details/*' element={<DrinkDetails />} />
-
-        </Route>
-      </Routes>
-    </BrowserRouter>
+      <Router>
+        <Navbar />
+        <Routes>
+            <Route path="/" element={<Start />} />
+            <Route path='details/*' element={<DrinkDetails />} />
+        </Routes>
+      </Router>    
     </div>
   );
 }

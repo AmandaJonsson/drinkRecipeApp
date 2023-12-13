@@ -1,0 +1,17 @@
+.logo {
+    font-family: 'Satisfy', cursive;
+}
+
+.header {
+    font-family: 'Satisfy', cursive;
+    font-weight: 500;
+    font-size: 6.25rem;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 15px;
+  }
+
+  .header a{
+    text-decoration: none;
+    color:black
+  }
